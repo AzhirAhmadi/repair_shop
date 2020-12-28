@@ -9,12 +9,27 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
+  config.jwt do |jwt|
+    jwt.secret = ENV['DEVISE_JWT_SECRET_KEY']
+    jwt.dispatch_requests = [ 
+          ['POST', %r{^/api/v1/auth/signin$}],
+          ['POST', %r{^/api/v1/auth/signin.json$}]
+    ]
+    jwt.revocation_requests = [
+          ['DELETE', %r{^/api/v1/auth/signout$}],
+          ['DELETE', %r{^/api/v1/auth/signout.json$}]
+    ]
+    jwt.expiration_time = 1.day.to_i
+    jwt.request_formats = { user: [:json] }
+  end
+  config.skip_session_storage = [:http_auth] 
+  config.navigational_formats = [:json]
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '56e414182afe1be2a69801ed32a65ee7d40b7e6441b03fe1c9c99f90bf0f6f815a4b11a02ce63f9030106f1dc797cec33e9ef8801a0f47829c43409316757349'
+  # config.secret_key = 'b529e1556ad0dca10cd17e98156fde90f0114785ad71aa54c94f4893a57bf3fbf8ab828773a3850eaca83013ffa49debbb06c50cba6b70d7bf29d0afea657596'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -126,7 +141,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 12
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = 'ac0e7627076369704e7c6213f6fd7c0f1f9c87bbbca6d2373356909f52ecdaac0ab472eb64756b74549884b17f03b1ce096d9e0a8f736ed13746e5a09c7f1457'
+  # config.pepper = '0bb9f2b45685f7d6e9bde1a0ffeab9399e6adcff57c8ab3b551f0de4eb149370d885cb3b589052da25dd87f9ba064fb4d85490f1a0f4867b4bf1d69fa2be25a1'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
