@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_29_130100) do
+ActiveRecord::Schema.define(version: 2020_12_29_145308) do
 
   create_table "cars", force: :cascade do |t|
     t.string "number"
@@ -39,11 +39,11 @@ ActiveRecord::Schema.define(version: 2020_12_29_130100) do
   end
 
   create_table "repairs", force: :cascade do |t|
-    t.string "name"
     t.text "description"
     t.integer "car_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "kilometer"
     t.index ["car_id"], name: "index_repairs_on_car_id"
   end
 
