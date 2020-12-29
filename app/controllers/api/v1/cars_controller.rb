@@ -1,15 +1,15 @@
 module Api::V1
   class CarsController < ApplicationController
     def index
-      render json: customer.cars
+      render json: model
     end
     
     def show
-      render json: customer.cars.find_by_id(params[:id])
+      render json: model.find_by_id(params[:id])
     end
     
     def create
-      car = customer.cars.new(permited_params)
+      car = model.new(permited_params)
 
       if car.save
         render json: car
@@ -19,7 +19,7 @@ module Api::V1
     end
 
     def update
-      car = customer.cars.find_by_id(params[:id])
+      car = model.find_by_id(params[:id])
 
       if car.update(permited_params)
         render json: car
@@ -29,7 +29,7 @@ module Api::V1
     end
 
     def destroy
-      car = customer.cars.find_by_id(params[:id])
+      car = model.find_by_id(params[:id])
 
       if car.destroy
         render json: car
@@ -39,13 +39,11 @@ module Api::V1
     end
 
     private
-    
-    def shop
-      @shop || current_user.shop
-    end
 
-    def customer
-      @customer || shop.customers.find_by_id(params[:customer_id])
+    def model
+      @model || (current_user.shop
+      .customers.find_by_id(params[:customer_id])
+      .cars)
     end
 
     def permited_params

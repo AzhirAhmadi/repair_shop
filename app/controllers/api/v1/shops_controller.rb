@@ -1,18 +1,23 @@
 module Api::V1
   class ShopsController < ApplicationController
     def show
-      render json: current_user.shop
+      render json: model
     end
     
     def update
-      if current_user.shop.update(permited_params)
-        render json: current_user.shop
+      if model.update(permited_params)
+        render json: model
       else
-        render json: current_user.shop.errors.messages
+        render json: model.errors.messages
       end
     end
 
     private
+    
+    def model
+      @model || current_user.shop
+    end
+
     def permited_params
       params.required(:shop).permit(:name)
     end

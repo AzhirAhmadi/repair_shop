@@ -39,25 +39,13 @@ module Api::V1
     end
 
     private
-    
-    def shop
-      @shop || current_user.shop
-    end
-
-    def customer
-      @customer || shop.customers.find_by_id(params[:customer_id])
-    end
-
-    def car
-      @car || customer.cars.find_by_id(params[:car_id])
-    end
-
-    def repair
-      @car || car.repairs.find_by_id(params[:repair_id])
-    end
 
     def model
-      @spare_parts || repair.spare_parts
+      @model || (current_user.shop
+        .customers.find_by_id(params[:customer_id])
+        .cars.find_by_id(params[:car_id])
+        .repairs.find_by_id(params[:repair_id])
+        .spare_parts)
     end
 
     def permited_params
