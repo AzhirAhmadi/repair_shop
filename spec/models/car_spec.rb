@@ -4,7 +4,7 @@
 #
 #  id          :integer          not null, primary key
 #  number      :string
-#  type        :string
+#  car_type    :string
 #  customer_id :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
