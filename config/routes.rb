@@ -15,7 +15,9 @@ Rails.application.routes.draw do
         put   '/shop',       to: 'shops#update'
 
         resources :customers, only: %i[index show create update destroy] do
-          resources :cars, only: %i[index show create update destroy]
+          resources :cars, only: %i[index show create update destroy] do
+            resources :repairs, only: %i[index show create update destroy]
+          end
         end
       end
       get   '/profile',       to: 'users#profile'
