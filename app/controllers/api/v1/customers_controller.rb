@@ -41,7 +41,7 @@ module Api::V1
     private
     
     def shop
-      current_user.shop
+      @shop || current_user.shop
     end
 
     def permited_params
