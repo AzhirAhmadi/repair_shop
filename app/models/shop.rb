@@ -9,6 +9,8 @@
 #  updated_at :datetime         not null
 #
 class Shop < ApplicationRecord
+    validates :name, presence: true, uniqueness: true
+
     belongs_to :user
     has_many :customers
 end

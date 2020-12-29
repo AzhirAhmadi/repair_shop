@@ -14,4 +14,6 @@ require 'rails_helper'
 RSpec.describe Customer, type: :model do
   it { should belong_to(:shop) }
   it { should have_many(:cars) }
+  it { should validate_uniqueness_of(:name).scoped_to(:shop_id) }
+  it { should validate_presence_of(:name) }
 end
