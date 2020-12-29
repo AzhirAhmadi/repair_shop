@@ -9,4 +9,5 @@
 #  updated_at :datetime         not null
 #
 class Shop < ApplicationRecord
+    belongs_to :user
 end
