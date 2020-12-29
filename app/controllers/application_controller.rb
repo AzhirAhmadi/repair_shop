@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
       success: false,
       response: 'check_authorization_token',
     }, status: :forbidden
-    false
+    return false
   end
 
   def check_json_format
