@@ -10,4 +10,6 @@
 #  updated_at    :datetime         not null
 #
 class Customer < ApplicationRecord
+    belongs_to :shop
+    has_many :cars
 end
