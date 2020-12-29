@@ -9,6 +9,14 @@ Rails.application.routes.draw do
           delete '/signout',      to: 'sessions#destroy'
         end
       end
+
+      resources :users, only: %i[update] do
+        get   '/shop',       to: 'shops#show'
+        put   '/shop',       to: 'shops#update'
+
+        resources :customers, only: %i[index show create update destroy]
+      end
+      get   '/profile',       to: 'users#profile'
     end
   end
 end
