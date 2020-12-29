@@ -16,7 +16,9 @@ Rails.application.routes.draw do
 
         resources :customers, only: %i[index show create update destroy] do
           resources :cars, only: %i[index show create update destroy] do
-            resources :repairs, only: %i[index show create update destroy]
+            resources :repairs, only: %i[index show create update destroy] do
+              resources :spare_parts, only: %i[index show create update destroy]
+            end
           end
         end
       end
