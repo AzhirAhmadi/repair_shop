@@ -6,7 +6,11 @@ class ApplicationController < ActionController::Base
 
   skip_before_action :verify_authenticity_token
 
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:app]
+
+  def app
+    render "layouts/application"
+  end
 
   def authenticate_user!(*_args)
     return unless check_authorization_token?
