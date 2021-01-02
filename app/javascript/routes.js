@@ -1,6 +1,7 @@
 //template
 import sing_in from "./components/authenticate/sing_in.vue";
 import user_update from "./components/users/update";
+import shop_update from "./components/shops/update";
 
 const routes = [
   // //General
@@ -10,12 +11,22 @@ const routes = [
     component: sing_in,
     props: true,
   },
+  // //General end
+  // //User
   {
     path: "/users/:id",
     name: "user_update",
     component: user_update,
     props: true,
   },
-  // //General end
+  // //User end
+  // //Shop
+  {
+    path: "/users/:user_id/shop",
+    name: "shop_update",
+    component: shop_update,
+    props: true,
+  },
+  // //Shop end
 ];
 export default routes;

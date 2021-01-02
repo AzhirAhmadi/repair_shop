@@ -7,11 +7,13 @@ export default new Vuex.Store({
   state: {
     auth_token: 0,
     current_user: null,
+    current_shop: null,
     page_header: "Home",
   },
   getters: {
     auth_token: (state) => state.auth_token,
     current_user: (state) => state.current_user,
+    current_shop: (state) => state.current_shop,
     page_header: (state) => state.page_header,
   },
   mutations: {
@@ -20,6 +22,9 @@ export default new Vuex.Store({
     },
     SET_CURRENT_USER(state, valve) {
       state.current_user = valve;
+    },
+    SET_CURRENT_SHOP(state, valve) {
+      state.current_shop = valve;
     },
     SET_PAGE_HEADER(state, valve) {
       state.page_header = valve;
@@ -33,6 +38,10 @@ export default new Vuex.Store({
     updateCurrentUser({ state, commit }, valve) {
       console.log("updateCurrentUser");
       commit("SET_CURRENT_USER", valve);
+    },
+    updateCurrentShop({ state, commit }, valve) {
+      console.log("updateCurrentShop");
+      commit("SET_CURRENT_SHOP", valve);
     },
     updatePageHeader({ state, commit }, valve) {
       console.log("updatePageHeader");

@@ -17,6 +17,8 @@ import deviseResource from "../resources/deviseResource";
 Vue.prototype.$deviseResource = deviseResource;
 import userResource from "../resources/userResource";
 Vue.prototype.$userResource = userResource;
+import shopResource from "../resources/shopResource";
+Vue.prototype.$shopResource = shopResource;
 
 // Import vuex
 // npm install vuex --save
