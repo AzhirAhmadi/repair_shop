@@ -73,8 +73,8 @@ export default {
     };
   },
   methods: {
-    callUserUpdate() {
-      console.log("callUserUpdate");
+    call_PUT_user() {
+      console.log("call_PUT_user");
       this.$userResource
         .PUT_user(this.id, this.user)
         .then((response) => {
@@ -91,7 +91,7 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          this.callUserUpdate();
+          this.call_PUT_user();
         } else {
           return false;
         }

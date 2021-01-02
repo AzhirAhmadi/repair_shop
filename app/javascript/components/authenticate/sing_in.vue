@@ -12,7 +12,7 @@
         </div>
         <br />
         <div style="text-align: center; margin: 0">
-          <el-button type="success" @click="callLogin">SingIn</el-button>
+          <el-button type="success" @click="call_POST_login">SingIn</el-button>
         </div>
       </el-col>
     </el-row>
@@ -33,22 +33,22 @@ export default {
     },
   },
   methods: {
-    callLogin() {
+    call_POST_login() {
       this.$deviseResource
         .POST_login(this.email, this.password)
         .then((response) => {
           this.$store.dispatch("updateAuthToken", response.data.jwt);
         })
-        .then(this.callProfile);
+        .then(this.call_GET_profile);
     },
-    callProfile() {
+    call_GET_profile() {
       this.$userResource
         .GET_profile()
         .then((response) => {
           this.$store.dispatch("updateCurrentUser", response.data);
         })
         .then((response) => {
-          this.$router.push("/users/" + this.current_user.id);
+          this.$router.push("/users/" + this.current_user.id + "/shop");
         })
         .then(this.cancel);
     },
