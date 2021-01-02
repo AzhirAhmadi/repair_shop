@@ -1,23 +1,21 @@
 <template>
-  <div id="content">
-    <div>
-      <el-row>
-        <el-col :span="6" :push="9">
-          <div style="text-align: center; margin: 0">
-            <el-input placeholder="email" v-model="email"></el-input>
-            <el-input
-              placeholder="password"
-              v-model="password"
-              show-password
-            ></el-input>
-          </div>
-          <br />
-          <div style="text-align: center; margin: 0">
-            <el-button type="success" @click="callLogin">SingIn</el-button>
-          </div>
-        </el-col>
-      </el-row>
-    </div>
+  <div>
+    <el-row>
+      <el-col :span="6" :push="9">
+        <div style="text-align: center; margin: 0">
+          <el-input placeholder="email" v-model="email"></el-input>
+          <el-input
+            placeholder="password"
+            v-model="password"
+            show-password
+          ></el-input>
+        </div>
+        <br />
+        <div style="text-align: center; margin: 0">
+          <el-button type="success" @click="callLogin">SingIn</el-button>
+        </div>
+      </el-col>
+    </el-row>
   </div>
 </template>
 
@@ -28,6 +26,11 @@ export default {
       email: "azhir@test.com",
       password: "123456",
     };
+  },
+  computed: {
+    current_user() {
+      return this.$store.state.current_user;
+    },
   },
   methods: {
     callLogin() {
@@ -44,11 +47,11 @@ export default {
         .then((response) => {
           this.$store.dispatch("updateCurrentUser", response.data);
         })
+        .then((response) => {
+          this.$router.push("/users/" + this.current_user.id);
+        })
         .then(this.cancel);
     },
-  },
-  created() {
-    // this.$store.dispatch("updatePageHeader", "Sing In");
   },
 };
 </script>

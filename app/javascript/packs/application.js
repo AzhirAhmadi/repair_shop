@@ -19,7 +19,7 @@ import userResource from "../resources/userResource";
 Vue.prototype.$userResource = userResource;
 
 // Import vuex
-// yarn add vuex
+// npm install vuex --save
 import Vuex from "vuex";
 Vue.use(Vuex);
 import store from "./store.js";

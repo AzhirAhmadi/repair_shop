@@ -15,7 +15,7 @@ module Api::V1
     private
     
     def permited_params
-      params.required(:user).permit(:email)
+      params.required(:user).permit(:email, :password)
     end
   end
 end
