@@ -49,7 +49,6 @@ export default {
   },
   methods: {
     call_POST_user_customers() {
-      console.log("callShopUpdate");
       this.$customerResource
         .POST_user_customers(this.user_id, this.customer)
         .then(() => {

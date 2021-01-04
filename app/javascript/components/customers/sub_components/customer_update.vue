@@ -52,7 +52,6 @@ export default {
   },
   methods: {
     call_PUT_user_customer() {
-      console.log("callCustomerUpdate");
       this.$customerResource
         .PUT_user_customer(this.user_id, this.customer)
         .then(() => {

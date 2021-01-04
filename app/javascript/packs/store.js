@@ -32,19 +32,15 @@ export default new Vuex.Store({
   },
   actions: {
     updateAuthToken({ state, commit }, valve) {
-      console.log("updateAuthToken");
       commit("SET_AUTH_TOKEN", valve);
     },
     updateCurrentUser({ state, commit }, valve) {
-      console.log("updateCurrentUser");
       commit("SET_CURRENT_USER", valve);
     },
     updateCurrentShop({ state, commit }, valve) {
-      console.log("updateCurrentShop");
       commit("SET_CURRENT_SHOP", valve);
     },
     updatePageHeader({ state, commit }, valve) {
-      console.log("updatePageHeader");
       commit("SET_PAGE_HEADER", valve);
     },
   },

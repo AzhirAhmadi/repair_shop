@@ -34,8 +34,6 @@ export default {
   props: ["id"],
   data() {
     var validateConfirm = (rule, value, callback) => {
-      console.log("validateConfirm");
-      console.log(value);
       if (value === "") {
         callback(new Error("Please input the password again"));
       } else if (value !== this.user.password) {
@@ -74,7 +72,6 @@ export default {
   },
   methods: {
     call_PUT_user() {
-      console.log("call_PUT_user");
       this.$userResource
         .PUT_user(this.id, this.user)
         .then((response) => {
@@ -85,7 +82,6 @@ export default {
         });
     },
     cancel() {
-      console.log("cancel");
       this.$router.go(-1);
     },
     submitForm(formName) {
@@ -107,7 +103,6 @@ export default {
     },
   },
   created() {
-    console.log("users#update.created");
     this.$store.dispatch("updatePageHeader", "Update User");
     this.user = this.current_user;
   },

@@ -4,7 +4,6 @@ import store from "../packs/store";
 export default {
   // users#profile
   GET_profile() {
-    console.log("profile");
     return apiClient.get("/profile", {
       headers: {
         Authorization: store.state.auth_token,
@@ -13,7 +12,6 @@ export default {
   }, //##
   // users#update
   PUT_user(id, user) {
-    console.log("/update");
     return apiClient.put(
       "/users/" + id,
       {

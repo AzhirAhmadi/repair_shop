@@ -1,5 +1,5 @@
 <template>
-  <div style="display: flex;" v-if="customers.length > 0">
+  <div style="display: flex;" >
     <div style="width:80%">
       <p class="header">Customer List</p>
       <table style="width:100%">
@@ -15,7 +15,7 @@
             <CustomerInList
               v-for="(customer, index) in customers"
               :key="index"
-              :user_id="$store.state.current_user.id"
+              :user_id="user_id"
               :customer="customer"
               @onDelete="removeCustomerFromList"
               @onUpdate="updateCustomer"
@@ -27,12 +27,12 @@
     <div style="width:20%">
       <Create
         v-if="sideBarContent == 'create'"
-        :user_id="$store.state.current_user.id"
+        :user_id="user_id"
         @onAdd="reloadCustomersList"
       />
       <Update
         v-if="sideBarContent == 'update'"
-        :user_id="$store.state.current_user.id"
+        :user_id="user_id"
         :data="updating_data"
         @onCancel="onCancel"
         @onSave="onSave"
@@ -63,7 +63,6 @@ export default {
   },
   methods: {
     call_GET_user_customers() {
-      console.log("callCustomerIndex");
       this.load = false;
       this.$customerResource
         .GET_user_customers(this.user_id)
@@ -86,7 +85,6 @@ export default {
     },
     updateCustomer(customer) {
       this.updating_data = customer;
-      console.log(this.updating_data);
       this.sideBarContent = "update";
     },
     onCancel() {
@@ -100,7 +98,6 @@ export default {
     },
   },
   created() {
-    console.log("Shops#update.created");
     this.$store.dispatch("updatePageHeader", "Customer Index");
     this.call_GET_user_customers(this.$store.state.current_user.id);
   },

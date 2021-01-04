@@ -39,7 +39,6 @@ export default {
   },
   methods: {
     call_PUT_user_shop() {
-      console.log("callShopUpdate");
       this.$shopResource
         .PUT_user_shop(this.user_id, this.shop)
         .then((response) => {
@@ -50,14 +49,12 @@ export default {
         });
     },
     call_GET_user_shop() {
-      console.log("callShopUpdate");
       this.$shopResource.GET_user_shop(this.user_id).then((response) => {
         this.$store.dispatch("updateCurrentShop", response.data);
         this.shop = response.data;
       });
     },
     cancel() {
-      console.log("cancel");
       this.$router.go(-1);
     },
     submitForm(formName) {
@@ -79,7 +76,6 @@ export default {
     },
   },
   created() {
-    console.log("Shops#update.created");
     this.$store.dispatch("updatePageHeader", "Update Shop");
     this.call_GET_user_shop();
   },

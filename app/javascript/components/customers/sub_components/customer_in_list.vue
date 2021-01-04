@@ -7,7 +7,7 @@
     <td style="width:100px">0</td>
     <td style="width:100px">{{ customer.mobile_number }}</td>
     <td style="width:200px">
-      <el-button @click="call_GET_user_customer">
+      <el-button @click="cars_index">
         Cars
       </el-button>
       <el-button
@@ -31,18 +31,13 @@ export default {
   props: ["user_id", "customer"],
   methods: {
     call_DELETE_user_customer() {
-      console.log("callDELETE_user");
       this.$customerResource
         .DELETE_user_customer(this.user_id, this.customer.id)
-        .then((response) => {
-          console.log(response);
-        })
         .then(() => {
           this.$emit("onDelete", this.customer.id);
         });
     },
-    call_GET_user_customer() {
-      console.log("call_GET_user_customer");
+    cars_index() {
       this.$router.push(
         "/users/" +
           this.user_id +
