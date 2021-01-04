@@ -14,9 +14,10 @@
             </tr>
             <CustomerInList
               v-for="(customer, index) in customers"
-              :customer="customer"
               :key="index"
-              @removeFromParent="removeCustomerFromList"
+              :user_id="$store.state.current_user.id"
+              :customer="customer"
+              @onDelete="removeCustomerFromList"
               @onUpdate="updateCustomer"
             />
           </table>
@@ -26,13 +27,15 @@
     <div style="width:20%">
       <Create
         v-if="sideBarContent == 'create'"
-        @reloadCustomersList="reloadCustomersList"
+        :user_id="$store.state.current_user.id"
+        @onAdd="reloadCustomersList"
       />
       <Update
         v-if="sideBarContent == 'update'"
+        :user_id="$store.state.current_user.id"
+        :data="updating_data"
         @onCancel="onCancel"
         @onSave="onSave"
-        :data="updating_data"
       />
     </div>
   </div>
@@ -66,7 +69,6 @@ export default {
         .GET_user_customers(this.user_id)
         .then((response) => {
           this.customers = response.data;
-          console.log(this.customers);
         })
         .then(() => {
           this.load = true;

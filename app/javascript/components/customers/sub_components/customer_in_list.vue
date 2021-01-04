@@ -8,7 +8,7 @@
     <td style="width:100px">{{ customer.mobile_number }}</td>
     <td style="width:200px">
       <el-button @click="call_GET_user_customer">
-        More
+        Cars
       </el-button>
       <el-button
         type="primary"
@@ -28,25 +28,32 @@
 
 <script>
 export default {
-  props: ["customer"],
+  props: ["user_id", "customer"],
   methods: {
     call_DELETE_user_customer() {
       console.log("callDELETE_user");
       this.$customerResource
-        .DELETE_user_customer(this.$store.state.current_user, this.customer.id)
+        .DELETE_user_customer(this.user_id, this.customer.id)
         .then((response) => {
           console.log(response);
         })
         .then(() => {
-          this.$emit("removeFromParent", this.customer.id);
+          this.$emit("onDelete", this.customer.id);
         });
     },
     call_GET_user_customer() {
       console.log("call_GET_user_customer");
+      this.$router.push(
+        "/users/" +
+          this.user_id +
+          "/customers/" +
+          this.customer.id +
+          "/cars"
+      );
     },
-    trigerOnUpdate(){
+    trigerOnUpdate() {
       this.$emit("onUpdate", this.customer);
-    }
+    },
   },
 };
 </script>

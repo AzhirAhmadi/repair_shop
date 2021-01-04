@@ -29,6 +29,7 @@
 
 <script>
 export default {
+  props:["user_id"],
   data() {
     return {
       load: true,
@@ -50,9 +51,9 @@ export default {
     call_POST_user_customers() {
       console.log("callShopUpdate");
       this.$customerResource
-        .POST_user_customers(this.$store.state.current_user, this.customer)
+        .POST_user_customers(this.user_id, this.customer)
         .then(() => {
-          this.$emit("reloadCustomersList");
+          this.$emit("onAdd");
         })
         .then(() => {
           this.resetForm("createCustomer");
@@ -69,11 +70,6 @@ export default {
     },
     resetForm(formName) {
       this.$refs[formName].resetFields();
-    },
-  },
-  computed: {
-    current_user() {
-      return this.$store.state.current_user;
     },
   },
 };

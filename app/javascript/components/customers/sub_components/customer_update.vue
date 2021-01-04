@@ -32,7 +32,7 @@
 
 <script>
 export default {
-  props: ["data"],
+  props: ["user_id", "data"],
   data() {
     return {
       load: true,
@@ -54,7 +54,7 @@ export default {
     call_PUT_user_customer() {
       console.log("callCustomerUpdate");
       this.$customerResource
-        .PUT_user_customer(this.$store.state.current_user.id, this.customer)
+        .PUT_user_customer(this.user_id, this.customer)
         .then(() => {
           this.$emit("onSave");
         });
@@ -73,11 +73,6 @@ export default {
     },
     terigerOnCancel() {
       this.$emit("onCancel");
-    },
-  },
-  computed: {
-    current_user() {
-      return this.$store.state.current_user;
     },
   },
   created() {
