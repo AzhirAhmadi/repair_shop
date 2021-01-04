@@ -9,7 +9,7 @@
               <th>ID</th>
               <th>Type</th>
               <th>Number</th>
-              <th>Actions</th>
+              <th style="width:300px">Actions</th>
             </tr>
             <CarInList
               v-for="(car, index) in cars"

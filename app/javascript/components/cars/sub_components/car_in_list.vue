@@ -3,9 +3,9 @@
     <td style="width:25px">
       <strong>{{ car.id }}</strong>
     </td>
-    <td style="width:100px">{{ car.car_type }}</td>
-    <td style="width:100px">{{ car.number }}</td>
-    <td style="width:200px">
+    <td style="width:200px">{{ car.car_type }}</td>
+    <td>{{ car.number }}</td>
+    <td style="width:300px">
       <el-button @click="rapairs_index">
         Repairs
       </el-button>
@@ -41,7 +41,7 @@ export default {
         "/users/" +
           this.user_id +
           "/customers/" +
-          this.customer.id +
+          this.customer_id +
           "/cars/" +
           this.car.id +
           "/repairs"

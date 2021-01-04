@@ -10,7 +10,7 @@
               <th>Name</th>
               <th>FinancialAccount</th>
               <th>Moblie</th>
-              <th>Actions</th>
+              <th style="width:300px">Actions</th>
             </tr>
             <CustomerInList
               v-for="(customer, index) in customers"

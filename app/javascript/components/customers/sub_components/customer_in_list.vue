@@ -6,7 +6,7 @@
     <td style="text-align: left;">{{ customer.name }}</td>
     <td style="width:100px">0</td>
     <td style="width:100px">{{ customer.mobile_number }}</td>
-    <td style="width:200px">
+    <td style="width:300px">
       <el-button @click="cars_index">
         Cars
       </el-button>
