@@ -5,7 +5,7 @@
       v-if="load"
       :model="car"
       :rules="rules"
-      ref="createCar"
+      ref="updateCar"
       label-width="150px "
       label-position="top"
       class="form"
@@ -19,7 +19,7 @@
       </el-form-item>
 
       <el-form-item>
-        <el-button type="success" @click="submitForm('createCar')">
+        <el-button type="success" @click="submitForm('updateCar')">
           Save
         </el-button>
         <el-button type="danger" @click="terigerOnCancel">
@@ -51,7 +51,7 @@ export default {
     };
   },
   methods: {
-    call_PUT_user_customer() {
+    call_PUT_user_customer_car() {
       this.$carResource
         .PUT_user_customer_car(this.user_id, this.customer_id, this.car)
         .then(() => {
@@ -61,7 +61,7 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          this.call_PUT_user_customer();
+          this.call_PUT_user_customer_car();
         } else {
           return false;
         }

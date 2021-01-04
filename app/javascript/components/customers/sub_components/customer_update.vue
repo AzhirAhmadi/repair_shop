@@ -5,7 +5,7 @@
       v-if="load"
       :model="customer"
       :rules="rules"
-      ref="createCustomer"
+      ref="updateCustomer"
       label-width="150px "
       label-position="top"
       class="form"
@@ -19,7 +19,7 @@
       </el-form-item>
 
       <el-form-item>
-        <el-button type="success" @click="submitForm('createCustomer')">
+        <el-button type="success" @click="submitForm('updateCustomer')">
           Save
         </el-button>
         <el-button type="danger" @click="terigerOnCancel">
