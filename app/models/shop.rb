@@ -12,5 +12,5 @@ class Shop < ApplicationRecord
     validates :name, presence: true, uniqueness: true
 
     belongs_to :user
-    has_many :customers
+    has_many :customers, dependent: :destroy
 end
