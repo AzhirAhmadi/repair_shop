@@ -47,7 +47,7 @@ module Api::V1
     end
 
     def permited_params
-      @permited_params || params.required(:customer).permit(:number, :car_type)
+      @permited_params || params.required(:car).permit(:number, :car_type)
     end
   end
 end
