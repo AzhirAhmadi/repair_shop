@@ -23,6 +23,8 @@ import customerResource from "../resources/customerResource";
 Vue.prototype.$customerResource = customerResource;
 import carResource from "../resources/carResource";
 Vue.prototype.$carResource = carResource;
+import repairResource from "../resources/repairResource";
+Vue.prototype.$repairResource = repairResource;
 
 // Import vuex
 // npm install vuex --save
