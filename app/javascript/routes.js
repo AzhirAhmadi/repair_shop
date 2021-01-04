@@ -2,6 +2,7 @@
 import sing_in from "./components/authenticate/sing_in.vue";
 import user_update from "./components/users/update";
 import shop_update from "./components/shops/update";
+import customer_index from "./components/customers/index";
 
 const routes = [
   // //General
@@ -28,5 +29,13 @@ const routes = [
     props: true,
   },
   // //Shop end
+  // //Customer
+  {
+    path: "/users/:user_id/customers",
+    name: "customer_index",
+    component: customer_index,
+    props: true,
+  },
+  // //Customer end
 ];
 export default routes;
