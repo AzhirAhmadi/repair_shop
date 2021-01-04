@@ -78,7 +78,7 @@ export default {
       }
     },
     reloadCarsList() {
-      this.call_GET_user_customer_cars(this.$store.state.current_user.id);
+      this.call_GET_user_customer_cars();
     },
     updateCar(car) {
       this.updating_data = car;
@@ -96,7 +96,7 @@ export default {
   },
   created() {
     this.$store.dispatch("updatePageHeader", "Car Index");
-    this.call_GET_user_customer_cars(this.$store.state.current_user.id);
+    this.call_GET_user_customer_cars();
   },
 };
 </script>
