@@ -81,7 +81,7 @@ export default {
       }
     },
     reloadCustomersList() {
-      this.call_GET_user_customers(this.$store.state.current_user.id);
+      this.call_GET_user_customers();
     },
     updateCustomer(customer) {
       this.updating_data = customer;
@@ -98,8 +98,7 @@ export default {
     },
   },
   created() {
-    this.$store.dispatch("updatePageHeader", "Customer Index");
-    this.call_GET_user_customers(this.$store.state.current_user.id);
+    this.call_GET_user_customers();
   },
 };
 </script>
