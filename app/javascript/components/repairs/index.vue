@@ -19,6 +19,7 @@
               <th style="width:25px">ID</th>
               <th style="width:200px">کیلومتر</th>
               <th>توضیحات</th>
+              <th>تاریخ</th>
               <th style="width:300px">حاسب مالی</th>
               <th style="width:400px">فعالیت ها</th>
             </tr>
