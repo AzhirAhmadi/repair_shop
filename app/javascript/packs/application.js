@@ -27,7 +27,8 @@ import repairResource from "../resources/repairResource";
 Vue.prototype.$repairResource = repairResource;
 import sparePartResource from "../resources/sparePartResource";
 Vue.prototype.$sparePartResource = sparePartResource;
-
+import paymentResource from "../resources/paymentResource";
+Vue.prototype.$paymentResource = paymentResource;
 
 // Import vuex
 // npm install vuex --save
@@ -40,6 +41,9 @@ import store from "./store.js";
 import router from "./router";
 
 import Home from "../views/home.vue";
+
+import helpers from "./helpers";
+Vue.prototype.$helpers = helpers;
 
 document.addEventListener("DOMContentLoaded", () => {
   const app = new Vue({

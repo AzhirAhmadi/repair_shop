@@ -3,9 +3,12 @@
     <td>
       <strong>{{ repair.id }}</strong>
     </td>
-    <td>{{ repair.kilometer }}</td>
+    <td>{{ $helpers.numberWithCommas(repair.kilometer) }}</td>
     <td>{{ repair.description }}</td>
     <td>
+      <el-button @click="paymentsIndex">
+        Payments
+      </el-button>
       <el-button @click="sparePartsIndex">
         Spare Parts
       </el-button>
@@ -52,6 +55,19 @@ export default {
           "/repairs/" +
           this.repair.id +
           "/spare_parts"
+      );
+    },
+    paymentsIndex() {
+      this.$router.push(
+        "/users/" +
+          this.user_id +
+          "/customers/" +
+          this.customer_id +
+          "/cars/" +
+          this.car_id +
+          "/repairs/" +
+          this.repair.id +
+          "/payments"
       );
     },
     trigerOnUpdate() {
