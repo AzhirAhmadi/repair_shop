@@ -50,7 +50,7 @@ export default {
       {
         repair: {
           description: repair.description,
-          kilometer: repair.kilometer,
+          kilometer: repair.kilometer.toEnglishDigit(),
         },
       },
       {
@@ -74,7 +74,7 @@ export default {
       {
         repair: {
           description: repair.description,
-          kilometer: repair.kilometer,
+          kilometer: repair.kilometer.toEnglishDigit().toEn,
         },
       },
       {

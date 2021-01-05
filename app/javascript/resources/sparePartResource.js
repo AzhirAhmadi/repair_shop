@@ -73,7 +73,7 @@ export default {
       {
         spare_part: {
           name: spare_part.name,
-          cost: spare_part.cost,
+          cost: spare_part.cost.toEnglishDigit(),
           serial_number: spare_part.serial_number,
         },
       },
@@ -106,7 +106,7 @@ export default {
       {
         spare_part: {
           name: spare_part.name,
-          cost: spare_part.cost,
+          cost: spare_part.cost.toEnglishDigit(),
           serial_number: spare_part.serial_number,
         },
       },

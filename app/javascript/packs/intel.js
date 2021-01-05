@@ -1,23 +1,24 @@
 export default {
-  DateTimeFormat(){
-    console.log("DateTimeFormat")
+  DateTimeFormat() {
     return new Intl.DateTimeFormat("fa", {
       year: "2-digit",
       month: "numeric",
       day: "numeric",
       hour: "numeric",
-      minute: "numeric"
+      minute: "numeric",
     });
   },
-  MoneyFormat(){
-    console.log("MoneyFormat")
+  MoneyFormat() {
     return new Intl.NumberFormat("fa", {
       style: "currency",
       currency: "IRR",
-      minimumFractionDigits: 0
+      minimumFractionDigits: 0,
     });
-  }
-} 
+  },
+  NumberFormat() {
+    return new Intl.NumberFormat("fa");
+  },
+};
 
 // {
 //   weekday: 'narrow' | 'short' | 'long',

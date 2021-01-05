@@ -25,7 +25,7 @@ export default {
       {
         customer: {
           name: customer.name,
-          mobile_number: customer.mobile_number,
+          mobile_number: customer.mobile_number.toEnglishDigit(),
         },
       },
       {
@@ -42,7 +42,7 @@ export default {
         {
           customer: {
             name: customer.name,
-            mobile_number: customer.mobile_number,
+            mobile_number: customer.mobile_number.toEnglishDigit(),
           },
         },
         {

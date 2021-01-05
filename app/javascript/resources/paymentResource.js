@@ -72,7 +72,7 @@ export default {
         "/payments",
       {
         payment: {
-          value: payment.value,
+          value: payment.value.toEnglishDigit(),
         },
       },
       {
@@ -99,11 +99,11 @@ export default {
         car_id +
         "/repairs/" +
         repair_id +
-        "/payments/"+
-      payment.id,
+        "/payments/" +
+        payment.id,
       {
         payment: {
-          value: payment.value,
+          value: payment.value.toEnglishDigit(),
         },
       },
       {
