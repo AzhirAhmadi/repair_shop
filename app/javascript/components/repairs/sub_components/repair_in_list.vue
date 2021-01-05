@@ -5,12 +5,13 @@
     </td>
     <td>{{ $helpers.numberWithCommas(repair.kilometer) }}</td>
     <td>{{ repair.description }}</td>
+    <td>{{$helpers.money(1000)}}</td>
     <td>
       <el-button @click="paymentsIndex">
-        Payments
+        پرداخت ها
       </el-button>
       <el-button @click="sparePartsIndex">
-        Spare Parts
+        قطعات یدکی
       </el-button>
       <el-button
         type="primary"

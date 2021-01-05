@@ -3,8 +3,8 @@
     <td>
       <strong>{{ payment.id }}</strong>
     </td>
-    <td>{{ $helpers.numberWithCommas(payment.value) }}</td>
-    <td>date</td>
+    <td>{{ $helpers.dateFromat(payment.updated_at) }}</td>
+    <td>{{ $helpers.money(payment.value) }}</td>
     <td>
       <el-button
         type="primary"

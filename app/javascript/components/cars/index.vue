@@ -7,19 +7,20 @@
         circle
         @click="$router.go(-1)"
       />
-      <p>Customers List</p>
+      <p>مشتری ها</p>
       <div></div>
     </div>
     <div style="width:80%">
-      <p class="header">Cars List</p>
+      <p class="header">ماشین ها</p>
       <table v-if="cars.length > 0" style="width:100%">
         <tr>
           <table style="width:100%">
             <tr>
               <th style="width:25px">ID</th>
-              <th style="width:200px">Car Type</th>
-              <th>Car Number</th>
-              <th style="width:300px">Actions</th>
+              <th style="width:200px">مدل</th>
+              <th>شماره ماشین</th>
+              <th style="width:300px">حاسب مالی</th>
+              <th style="width:400px">فعالیت ها</th>
             </tr>
             <CarInList
               v-for="(car, index) in cars"

@@ -2,19 +2,19 @@
   <div style="display: flex;">
     <div class="shop-name" @click="$router.go(-1)">
       <el-button class="back-button" icon="el-icon-back" circle />
-      <p>Repairs List</p>
+      <p>تعمیرات</p>
       <div></div>
     </div>
     <div style="width:80%">
-      <p class="header">Payments List</p>
+      <p class="header">پرداخت ها</p>
       <table v-if="payments.length > 0" style="width:100%">
         <tr>
           <table style="width:100%">
             <tr>
               <th style="width:25px">ID</th>
-              <th style="width:300px">Value</th>
-              <th>Date</th>
-              <th style="width:400px">Actions</th>
+              <th>تاریخ</th>
+              <th style="width:300px">مقدار</th>
+              <th style="width:400px">فعالیت ها</th>
             </tr>
             <PaymentInList
               v-for="(payment, index) in payments"
@@ -31,11 +31,13 @@
         </tr>
       </table>
 
+      <br />
       <table v-if="payments.length > 0" style="width:100%">
-        <tr style="background: #bbb; height: 30px;">
+        <tr style="background: #67c23a; height: 30px;">
           <th style="width:100px">Total</th>
           <th></th>
-          <th style="width:300px">{{ $helpers.numberWithCommas(totalValue()) }}</th>
+          <th style="width:300px">{{ $helpers.money(totalValue()) }}</th>
+          <th style="width:400px"></th>
         </tr>
       </table>
     </div>

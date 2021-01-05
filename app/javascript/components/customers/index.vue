@@ -12,16 +12,16 @@
       <div></div>
     </div>
     <div style="width:80%">
-      <p class="header">Customer List</p>
+      <p class="header">مشتری ها</p>
       <table style="width:100%">
         <tr>
           <table style="width:100%">
             <tr>
               <th style="width:25px">ID</th>
-              <th>Name</th>
-              <th style="width:100px">FinancialAccount</th>
-              <th style="width:100px">Moblie</th>
-              <th style="width:300px">Actions</th>
+              <th>نام</th>
+              <th style="width:100px">شماره موبایل</th>
+              <th style="width:300px">حاسب مالی</th>
+              <th style="width:400px">فعالیت ها</th>
             </tr>
             <CustomerInList
               v-for="(customer, index) in customers"

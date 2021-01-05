@@ -1,25 +1,21 @@
 <template>
   <div style="display: flex;">
     <div class="shop-name" @click="$router.go(-1)">
-      <el-button
-        class="back-button"
-        icon="el-icon-back"
-        circle
-      />
-      <p>Repairs List</p>
+      <el-button class="back-button" icon="el-icon-back" circle />
+      <p>تعمیرات</p>
       <div></div>
     </div>
     <div style="width:80%">
-      <p class="header">SpareParts List</p>
+      <p class="header">قطعات یدکی</p>
       <table v-if="spare_parts.length > 0" style="width:100%">
         <tr>
           <table style="width:100%">
             <tr>
               <th style="width:25px">ID</th>
-              <th style="width:300px">Name</th>
-              <th>SerialNumber</th>
-              <th style="width:200px">Cost</th>
-              <th style="width:300px">Actions</th>
+              <th style="width:300px">نام</th>
+              <th>شماره سریال</th>
+              <th style="width:300px">هزینه</th>
+              <th style="width:400px">فعالیت ها</th>
             </tr>
             <SparePartInList
               v-for="(spare_part, index) in spare_parts"
@@ -33,6 +29,16 @@
               @onUpdate="updateCar"
             />
           </table>
+        </tr>
+      </table>
+
+      <br />
+      <table v-if="spare_parts.length > 0" style="width:100%">
+        <tr style="background: #f56c6c; height: 30px;">
+          <th style="width:100px">Total</th>
+          <th></th>
+          <th style="width:300px">{{ $helpers.money(totalValue()) }}</th>
+          <th style="width:400px"></th>
         </tr>
       </table>
     </div>
@@ -113,6 +119,9 @@ export default {
       this.reloadSparePartsList();
       this.updating_data = null;
       this.sideBarContent = "create";
+    },
+    totalValue() {
+      return this.spare_parts.map((x) => x.cost).reduce((a, b) => a + b);
     },
   },
   created() {

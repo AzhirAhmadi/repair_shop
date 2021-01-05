@@ -4,11 +4,11 @@
       <strong>{{ customer.id }}</strong>
     </td>
     <td>{{ customer.name }}</td>
-    <td>0</td>
     <td>{{ customer.mobile_number }}</td>
+    <td>{{$helpers.money(1000)}}</td>
     <td>
       <el-button @click="cars_index">
-        Cars
+        ماشینها
       </el-button>
       <el-button
         type="primary"

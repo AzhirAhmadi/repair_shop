@@ -5,9 +5,10 @@
     </td>
     <td>{{ car.car_type }}</td>
     <td>{{ car.number }}</td>
+    <td>{{$helpers.money(1000)}}</td>
     <td>
       <el-button @click="rapairs_index">
-        Repairs
+        تعمیرات
       </el-button>
       <el-button
         type="primary"

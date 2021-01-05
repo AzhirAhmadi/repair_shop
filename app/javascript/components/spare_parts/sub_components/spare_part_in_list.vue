@@ -5,7 +5,7 @@
     </td>
     <td>{{ spare_part.name }}</td>
     <td>{{ spare_part.serial_number }}</td>
-    <td>{{ spare_part.cost }}</td>
+    <td>{{ $helpers.money(spare_part.cost) }}</td>
     <td>
       <el-button
         type="primary"
