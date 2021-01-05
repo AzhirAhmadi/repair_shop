@@ -8,6 +8,8 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
-class FinancialAccount < ApplicationRecord
-    belongs_to :repair
+require 'rails_helper'
+
+RSpec.describe Payment, type: :model do
+  it { should belong_to(:repair) }
 end

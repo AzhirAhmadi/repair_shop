@@ -12,5 +12,5 @@
 class Repair < ApplicationRecord
     belongs_to :car
     has_many :spare_parts, dependent: :destroy
-    has_many :financial_accounts, dependent: :destroy
+    has_many :payments, dependent: :destroy
 end
