@@ -5,6 +5,8 @@ import shop_update from "./components/shops/update";
 import customer_index from "./components/customers/index";
 import car_index from "./components/cars/index";
 import repair_index from "./components/repairs/index";
+import spare_part_index from "./components/spare_parts/index";
+
 
 const routes = [
   // //General
@@ -55,5 +57,13 @@ const routes = [
     props: true,
   },
   // //Repair end
+  // //SparePart
+  {
+    path: "/users/:user_id/customers/:customer_id/cars/:car_id/repairs/:repair_id/spare_parts",
+    name: "spare_part_index",
+    component: spare_part_index,
+    props: true,
+  },
+  // //SparePart end
 ];
 export default routes;

@@ -25,6 +25,9 @@ import carResource from "../resources/carResource";
 Vue.prototype.$carResource = carResource;
 import repairResource from "../resources/repairResource";
 Vue.prototype.$repairResource = repairResource;
+import sparePartResource from "../resources/sparePartResource";
+Vue.prototype.$sparePartResource = sparePartResource;
+
 
 // Import vuex
 // npm install vuex --save
