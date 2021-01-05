@@ -5,7 +5,7 @@
     </td>
     <td>{{ customer.name }}</td>
     <td>{{ customer.mobile_number }}</td>
-    <td>{{$helpers.money(1000)}}</td>
+    <td :style="{ background: customer.total_account<0 ? '#f56c6c' : '#67c23a'}">{{ $helpers.money(customer.total_account) }}</td>
     <td>
       <el-button @click="cars_index">
         ماشینها

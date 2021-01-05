@@ -5,7 +5,7 @@
     </td>
     <td>{{ car.car_type }}</td>
     <td>{{ car.number }}</td>
-    <td>{{$helpers.money(1000)}}</td>
+    <td :style="{ background: car.total_account<0 ? '#f56c6c' : '#67c23a'}">{{ $helpers.money(car.total_account) }}</td>
     <td>
       <el-button @click="rapairs_index">
         تعمیرات

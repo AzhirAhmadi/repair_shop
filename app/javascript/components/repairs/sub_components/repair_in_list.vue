@@ -5,7 +5,7 @@
     </td>
     <td>{{ $helpers.numberWithCommas(repair.kilometer) }}</td>
     <td>{{ repair.description }}</td>
-    <td>{{$helpers.money(1000)}}</td>
+    <td :style="{ background: repair.total_account<0 ? '#f56c6c' : '#67c23a'}">{{ $helpers.money(repair.total_account) }}</td>
     <td>
       <el-button @click="paymentsIndex">
         پرداخت ها
