@@ -37,6 +37,7 @@ export default {
     return {
       load: true,
       customer: {
+        id: null,
         name: "",
         mobile_number: "",
       },

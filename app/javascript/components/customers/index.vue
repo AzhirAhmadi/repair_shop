@@ -1,15 +1,26 @@
 <template>
-  <div style="display: flex;" >
+  <div style="display: flex;">
+    <div class="shop-name" style="cursor: default;">
+      <el-button
+        type="danger"
+        class="back-button"
+        icon="el-icon-switch-button"
+        circle
+        @click="$router.go(-1)"
+      />
+      <p style="cursor: default;">{{this.$store.state.current_shop.name}}</p>
+      <div></div>
+    </div>
     <div style="width:80%">
       <p class="header">Customer List</p>
       <table style="width:100%">
         <tr>
           <table style="width:100%">
             <tr>
-              <th>ID</th>
+              <th style="width:25px">ID</th>
               <th>Name</th>
-              <th>FinancialAccount</th>
-              <th>Moblie</th>
+              <th style="width:100px">FinancialAccount</th>
+              <th style="width:100px">Moblie</th>
               <th style="width:300px">Actions</th>
             </tr>
             <CustomerInList

@@ -1,11 +1,11 @@
 <template>
   <tr>
-    <td style="width:25px">
+    <td>
       <strong>{{ car.id }}</strong>
     </td>
-    <td style="width:200px">{{ car.car_type }}</td>
+    <td>{{ car.car_type }}</td>
     <td>{{ car.number }}</td>
-    <td style="width:300px">
+    <td>
       <el-button @click="rapairs_index">
         Repairs
       </el-button>

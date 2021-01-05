@@ -42,16 +42,28 @@ export default {
         .then((response) => {
           this.$store.dispatch("updateCurrentUser", response.data);
         })
+        .then(this.call_GET_user_shop());
+    },
+    call_GET_user_shop() {
+      this.$shopResource
+        .GET_user_shop()
         .then((response) => {
-          this.$router.push("/users/" + this.current_user.id + "/shop");
+          this.$store.dispatch("updateCurrentShop", response.data);
         })
-        .then(this.cancel);
+        .then((response) => {
+          this.$router.push(
+            "/users/" + this.$store.state.current_user.id + "/customers"
+          );
+        });
     },
   },
 };
 </script>
 
 <style scoped>
+div {
+  height: unset;
+}
 #content {
   text-align: center;
   margin: auto;

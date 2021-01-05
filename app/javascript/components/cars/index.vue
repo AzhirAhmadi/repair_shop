@@ -1,14 +1,24 @@
 <template>
   <div style="display: flex;">
+    <div class="shop-name out" @click="$router.go(-1)">
+      <el-button
+        class="back-button"
+        icon="el-icon-back"
+        circle
+        @click="$router.go(-1)"
+      />
+      <p>Customers List</p>
+      <div></div>
+    </div>
     <div style="width:80%">
       <p class="header">Cars List</p>
       <table v-if="cars.length > 0" style="width:100%">
         <tr>
           <table style="width:100%">
             <tr>
-              <th>ID</th>
-              <th>Type</th>
-              <th>Number</th>
+              <th style="width:25px">ID</th>
+              <th style="width:200px">Car Type</th>
+              <th>Car Number</th>
               <th style="width:300px">Actions</th>
             </tr>
             <CarInList

@@ -37,6 +37,7 @@ export default {
     return {
       load: true,
       repair: {
+        id: null,
         kilometer: "",
         description: "",
       },
@@ -49,7 +50,11 @@ export default {
           },
         ],
         description: [
-          { required: true, message: "Please input description", trigger: "change" },
+          {
+            required: true,
+            message: "Please input description",
+            trigger: "change",
+          },
         ],
       },
     };
@@ -57,7 +62,12 @@ export default {
   methods: {
     call_PUT_user_customer_car_repair() {
       this.$repairResource
-        .PUT_user_customer_car_repair(this.user_id, this.customer_id, this.car_id, this.repair)
+        .PUT_user_customer_car_repair(
+          this.user_id,
+          this.customer_id,
+          this.car_id,
+          this.repair
+        )
         .then(() => {
           this.$emit("onSave");
         });

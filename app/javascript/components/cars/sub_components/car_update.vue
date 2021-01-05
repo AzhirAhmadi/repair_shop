@@ -37,6 +37,7 @@ export default {
     return {
       load: true,
       car: {
+        id: null,
         car_type: "",
         number: "",
       },

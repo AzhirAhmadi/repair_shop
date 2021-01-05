@@ -1,11 +1,11 @@
 <template>
   <tr>
-    <td style="width:25px">
+    <td>
       <strong>{{ repair.id }}</strong>
     </td>
-    <td style="width:100px">{{ repair.kilometer }}</td>
-    <td >{{ repair.description }}</td>
-    <td style="width:300px">
+    <td>{{ repair.kilometer }}</td>
+    <td>{{ repair.description }}</td>
+    <td>
       <el-button @click="sparePartsIndex">
         Spare Parts
       </el-button>
@@ -30,8 +30,13 @@ export default {
   props: ["user_id", "customer_id", "car_id", "repair"],
   methods: {
     call_DELETE_user_customer_car_repair() {
-      this.$carResource
-        .DELETE_user_customer_car(this.user_id, this.customer_id, this.car_id, this.repair.id)
+      this.$repairResource
+        .DELETE_user_customer_car_repair(
+          this.user_id,
+          this.customer_id,
+          this.car_id,
+          this.repair.id
+        )
         .then(() => {
           this.$emit("onDelete", this.repair.id);
         });
@@ -41,11 +46,11 @@ export default {
         "/users/" +
           this.user_id +
           "/customers/" +
-          this.customer.id +
+          this.customer_id +
           "/cars/" +
           this.car_id +
-          "/repairs/"+
-          this.repair.id+
+          "/repairs/" +
+          this.repair.id +
           "/spare_parts"
       );
     },

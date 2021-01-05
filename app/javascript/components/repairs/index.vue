@@ -1,12 +1,22 @@
 <template>
   <div style="display: flex;">
+    <div class="shop-name" @click="$router.go(-1)">
+      <el-button
+        class="back-button"
+        icon="el-icon-back"
+        circle
+        @click="$router.go(-1)"
+      />
+      <p>Cars List</p>
+      <div></div>
+    </div>
     <div style="width:80%">
       <p class="header">Repairs List</p>
       <table v-if="repairs.length > 0" style="width:100%">
         <tr>
           <table style="width:100%">
             <tr>
-              <th>ID</th>
+              <th style="width:25px">ID</th>
               <th style="width:100px">Kilometer</th>
               <th>Description</th>
               <th style="width:300px">Actions</th>
@@ -68,7 +78,11 @@ export default {
   methods: {
     call_GET_user_customer_car_repairs() {
       this.$repairResource
-        .GET_user_customer_car_repairs(this.user_id, this.customer_id, this.car_id)
+        .GET_user_customer_car_repairs(
+          this.user_id,
+          this.customer_id,
+          this.car_id
+        )
         .then((response) => {
           this.repairs = response.data;
         });

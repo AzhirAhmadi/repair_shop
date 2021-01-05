@@ -53,8 +53,8 @@ export default {
       );
     }, //##
   // customers#destroy
-  DELETE_user_customer(user_id, customer_id) {
-    return apiClient.delete("/users/" + user_id + "/customers/" + customer_id, {
+  DELETE_user_customer(user_id, id) {
+    return apiClient.delete("/users/" + user_id + "/customers/" + id, {
       headers: {
         Authorization: store.state.auth_token,
       },

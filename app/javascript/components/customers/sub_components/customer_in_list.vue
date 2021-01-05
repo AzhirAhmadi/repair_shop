@@ -1,12 +1,12 @@
 <template>
   <tr>
-    <td style="width:25px">
+    <td>
       <strong>{{ customer.id }}</strong>
     </td>
-    <td style="text-align: left;">{{ customer.name }}</td>
-    <td style="width:100px">0</td>
-    <td style="width:100px">{{ customer.mobile_number }}</td>
-    <td style="width:300px">
+    <td>{{ customer.name }}</td>
+    <td>0</td>
+    <td>{{ customer.mobile_number }}</td>
+    <td>
       <el-button @click="cars_index">
         Cars
       </el-button>
