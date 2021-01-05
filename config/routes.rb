@@ -18,6 +18,7 @@ Rails.application.routes.draw do
           resources :cars, only: %i[index show create update destroy] do
             resources :repairs, only: %i[index show create update destroy] do
               resources :spare_parts, only: %i[index show create update destroy]
+              resources :payments, only: %i[index show create update destroy]
             end
           end
         end
