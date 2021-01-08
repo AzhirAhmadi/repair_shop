@@ -8,7 +8,32 @@
         circle
         @click="$router.go(-1)"
       />
-      <p style="cursor: default;">{{this.$store.state.current_shop.name}}</p>
+      <p style="cursor: default;">{{ this.$store.state.current_shop.name }}</p>
+      <div></div>
+    </div>
+    <div class="import-export">
+      <el-button
+        type="success"
+        class="back-button"
+        icon="el-icon-upload2"
+        circle
+        @click="call_GET_export"
+      >
+        <span>
+          <p>ذخیره</p>
+        </span>
+      </el-button>
+      <el-button
+        type="danger"
+        class="back-button"
+        icon="el-icon-download"
+        circle
+        @click="call_GET_import"
+      >
+        <span>
+          <p>بازیابی</p>
+        </span>
+      </el-button>
       <div></div>
     </div>
     <div style="width:80%">
@@ -84,6 +109,14 @@ export default {
           this.load = true;
         });
     },
+    call_GET_import() {
+      this.$dataResource.GET_import().then((response) => {
+        this.reloadCustomersList();
+      });
+    },
+    call_GET_export() {
+      this.$dataResource.GET_export();
+    },
     removeCustomerFromList(id) {
       for (var i = 0; i < this.customers.length; i++) {
         if (this.customers[i].id === id) {
@@ -117,5 +150,22 @@ export default {
 .header {
   font-size: 2em;
   text-align: center;
+}
+.import-export {
+  margin-left: 220px;
+  margin-top: 5px;
+  position: absolute;
+  width: 200px;
+  height: 50px;
+  display: flex;
+  cursor: pointer;
+}
+.import-export button p {
+  font-size: 18px;
+  position: absolute;
+  margin-top: 10px;
+}
+.import-export button span {
+  margin-left: -5px;
 }
 </style>

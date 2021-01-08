@@ -24,6 +24,8 @@ Rails.application.routes.draw do
         end
       end
       get   '/profile',       to: 'users#profile'
+      get   '/export',       to: 'data#export'
+      get   '/import',       to: 'data#import'
     end
   end
 

@@ -29,6 +29,9 @@ import sparePartResource from "../resources/sparePartResource";
 Vue.prototype.$sparePartResource = sparePartResource;
 import paymentResource from "../resources/paymentResource";
 Vue.prototype.$paymentResource = paymentResource;
+import dataResource from "../resources/dataResource";
+Vue.prototype.$dataResource = dataResource;
+
 
 // Import vuex
 // npm install vuex --save
